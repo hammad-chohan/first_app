@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'home', to:  'welcome#home'
+  root 'welcome#home'
   get 'about', to: 'welcome#about'
 
   resources :articles

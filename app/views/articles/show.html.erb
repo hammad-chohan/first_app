@@ -3,10 +3,20 @@
 <p>
   Title : <%= @article.title %>
 </p>
+<ul class="listing">
+  <div class="row">
+    <div>
+      <li>Created by:</li>
+      <li><%= link_to gravatar_for(@article.user), user_path(@article.user) %></li>
+      <li><%= link_to @article.user.username, user_path(@article.user) %></li>
+      <li><small><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></small></li>
+    </div>
+  </div>
+</ul>
 <p>
   Description : <%= @article.description %>
 </p>
 
 
 <%= link_to "Edit" , edit_article_path(@article[:id])  %> <br/>
-<%= link_to "Back to articles listing" ,  articles_path %>
+<%= link_to "Back to articles  listing" ,  articles_path %>
